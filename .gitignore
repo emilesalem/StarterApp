@@ -1,0 +1,10 @@
+logs/*
+tmp
+.DS_Store
+.idealogs/*
+!.gitkeep
+node_modules/
+bower_components/
+.idea/*
+*.js
+*.js.map

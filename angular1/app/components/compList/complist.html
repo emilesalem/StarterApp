@@ -1,0 +1,25 @@
+<div class="panel panel-default">
+    <div class="panel-heading">
+        <h3>Elements</h3>
+    </div>
+    <div class="panel-body">
+        <table class="table table-hover">
+            <tr>
+                <th>
+                    <h4>ID</h4>
+                </th>
+                <th>
+                    <h4>DESCRIPTION</h4>
+                </th>
+            </tr>
+            <tr ng-repeat="element in $ctrl.elementlist" ng-click="$ctrl.select({id:element.id})">
+               <td width="10%">
+                   {{element.id}}
+               </td>
+                <td>
+                    {{element.longDescription}}
+                </td>
+            </tr>
+        </table>
+    </div>
+</div>

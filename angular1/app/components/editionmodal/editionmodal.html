@@ -1,0 +1,84 @@
+<div class="modal-content">
+    <form name="form" novalidate class="simple-form">
+        <div class="modal-header">
+            <button type="button" class="close" ng-click="cancel()">&times;</button>
+            <h4 class="modal-title">Edit details</h4>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <label class="pull-right">ID:</label>
+                </div>
+                <div class="col-md-8">
+                    <input class="form-control input-sm" ng-model="elementToEdit.id">
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <label class="pull-right">Short Description:</label>
+                </div>
+                <div class="col-md-8">
+                    <input class="form-control input-sm" ng-model="elementToEdit.shortDescription"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <label class="pull-right">Info 1:</label>
+                </div>
+                <div class="col-md-8">
+                    <input class="form-control input-sm" name="info1" ng-model="elementToEdit.info1"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <label class="pull-right">Info 2:</label>
+                </div>
+                <div class="col-md-8">
+                    <input class="form-control input-sm" name="info2" ng-model="elementToEdit.info2" required-if-field-not-empty="{{elementToEdit.info1}}"/>
+                    <span ng-show="form.$submitted && form.info2.$error.requiredConditional">Please fill the info1</span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <label class="pull-right">Long Description:</label>
+                </div>
+                <div class="col-md-8">
+                    <input class="form-control input-sm" ng-model="elementToEdit.longDescription"/>
+                </div>
+            </div>
+
+
+            <div class="row">
+                <div class="col-md-6">
+                    <div class="form-control ">
+                        <label class=" smLabel">Weird element&nbsp;&nbsp;<input type="radio" name="typeWeird" value="weird" ng-model="elementToEdit.type"></label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-control ">
+                        <label class=" smLabel">Normal element&nbsp;&nbsp;<input type="radio" name="typeWeird" value="normal" ng-model="elementToEdit.type"></label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row" ng-if="elementToEdit.type == 'weird'">
+                <div class="col-md-4">
+                    <label class="pull-right">Weird Description:</label>
+                </div>
+                <div class="col-md-8">
+                    <textarea name="weirdDescr" class="form-control" rows="5" ng-model="elementToEdit.weirdDescription" required/>
+
+                    <div ng-show="form.$submitted && !elementToEdit.weirdDescription" class="help-block">
+                        <span ng-show="form.weirdDescr.$error.required">Please fill the weird description</span>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-default" ng-click="save()">save</button>
+            <button type="button" class="btn btn-default" ng-click="cancel()">cancel</button>
+        </div>
+    </form>
+</div>

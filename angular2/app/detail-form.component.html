@@ -1,0 +1,88 @@
+<div class="modal-content">
+    <!-- when using an existing controlGroup, use ngFormModel to bind the form -->
+    <form [ngFormModel]="detailForm" novalidate class="simple-form" (ngSubmit)="save()">
+        <div class="modal-header">
+            <h4 class="modal-title">Edit details</h4>
+        </div>
+        <div class="modal-body">
+            <div class="row">
+                <div class="col-md-4">
+                    <label class="pull-right">ID:</label>
+                </div>
+                <div class="col-md-8">
+                    <!-- ngControl creates a new Control object, and attaches it to the parent ControlGroup. In this case, we use FormBuilder to create our own Controls -->
+                    <input class="form-control input-sm" [ngFormControl]="detailForm.controls['id']"> <!--ngControl="id" -->
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <label class="pull-right">Short Description:</label>
+                </div>
+                <div class="col-md-8">
+                    <input class="form-control input-sm" [ngFormControl]="detailForm.controls['shortDescription']"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <label class="pull-right">Info 1:</label>
+                </div>
+                <div class="col-md-8">
+                    <input class="form-control input-sm" name="info1" [ngFormControl]="detailForm.controls['info1']"/>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <label class="pull-right">Info 2:</label>
+                </div>
+                <div class="col-md-8">
+                    <input class="form-control input-sm" name="info2" [ngFormControl]="detailForm.controls['info2']"/>
+
+                    <div *ngIf="detailForm.hasError('fieldNotEmptyProblem')">Please fill the info1</div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-4">
+                    <label class="pull-right">Long Description:</label>
+                </div>
+                <div class="col-md-8">
+                    <input class="form-control input-sm" [ngFormControl]="detailForm.controls['longDescription']"/>
+                </div>
+            </div>
+            <!--<div class="row"> NO SUPPORT FOR RADIO BUTTON IN ANGULAR 2 BETA YET
+                <div class="col-md-6">
+                    <div class="form-control ">
+                        <label class=" smLabel">Weird element&nbsp;&nbsp;<input type="radio" #type name="type" value="weird" [(detailForm.controls['type'])]=""/>
+                            &lt;!&ndash;   (click)="detailForm.controls['type'].value = weird.value">&ndash;&gt;
+                        </label>
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="form-control ">
+                        <label class=" smLabel">Normal element&nbsp;&nbsp;<input type="radio" name="type" value="normal"/>
+                            &lt;!&ndash; (click)="detailForm.controls['type'].value = normal.value">&ndash;&gt;
+                        </label>
+                    </div>
+                </div>
+            </div>-->
+            <!-- <div class="row" *ngIf="detailForm.controls['type'].value == 'weird'">-->
+            <div class="row">
+                <div class="col-md-4">
+                    <label class="pull-right">Weird Description:</label>
+                </div>
+                <div class="col-md-8">
+                    <textarea name="weirdDescr" class="form-control" rows="5" [ngFormControl]="detailForm.controls['weirdDescription']"
+                              #weirdDescription="ngForm" required></textarea>
+
+                    <div *ngIf="weirdDescription.control.hasError('required')" class="help-block">
+                        <span>Please fill the weird description</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-footer">
+            <button type="submit" class="btn btn-default" [disabled]="!detailForm.valid">save</button>
+            <button type="button" class="btn btn-default" (click)="cancel()">cancel</button>
+        </div>
+    </form>
+    <pre>{{detailForm.value | json}}</pre>
+</div>
