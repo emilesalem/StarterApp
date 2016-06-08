@@ -7,4 +7,6 @@ App specifications:
       Form validation: - The info 2 value is required only if info 1 value is not blank.
                        - if the weird element radio button is checked, then the text area must be filled.
 
-
+   - Problems encountered/Todos:
+         - in the angular2 app, I did not find any equivalent to angular-ui-bootstrap to put my form in a modal
+         - the radio button do not work as expected in angular 2
