@@ -1,5 +1,5 @@
 # StarterApp
-A small starter app to sample different web frameworks (angular 1, angular 2, react)
+A small application to sample different web frameworks (angular 1, angular 2, react)
 * ##App specifications
    * the app must display a list of descriptions of elements in a table 
    * once a description is selected, the details of the element are showned on a side panel
@@ -9,5 +9,5 @@ A small starter app to sample different web frameworks (angular 1, angular 2, re
       * if the weird element radio button is checked, then the text area must be filled.
 
 * ##Problems encountered/Todos
-   * in the angular2 app, I did not find any equivalent to angular-ui-bootstrap to put my form in a modal
-   * the radio button do not work as expected in angular 2
+   * FIXME: Angular2: I did not find any equivalent to angular-ui-bootstrap to put my form in a modal
+   * FIXME: Angular2: the form radio buttons do not work as expected
