@@ -1,0 +1,24 @@
+Goal: write ES6 React component classes in conjunction with Babel to transpile the whole thing in ES5
+
+
+Steps:
+	1- Install Babel presets to transpile from JSX to ES6
+	     (preset : a package which bundles together a number of transforms)
+	  'npm install babel-preset-es2105 babel-preset-react'
+		(https://facebook.github.io/react/docs/language-tooling.html)
+
+          2- ‘npm install -D babel-cli’
+               pour tester des commandes babel sur le command line
+
+	3- ‘npm install -D gulp-babel’
+                pour pouvoir écrire un fichier gulp en ES6 (node interprète pas encore ES6!)
+
+	4- Problème ! gulp ne comprend toujours pas mon fichier gulpfile.js écrit en ES6!
+            ‘npm install babel-core -D’
+             Il faut renommer le gulpfile.js vers ‘gulpfile.babel.js'
+
+        5- générer  package.json avec ’npm init’
+
+
+	6- bon la mon app fonctionne pas parce que j’ai du JSX sur mon index.html et il est pas transpilé. Que faire. Je veux
+	   pas utiliser les in-browser transpiler.
