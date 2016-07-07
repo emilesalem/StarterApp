@@ -1,11 +1,13 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
 
 //- React bundle extracted using CommonsChunkPlugin
 //- minimification
 //- source-map
-
+//TODO:
+// this config is good for development, need a solution for different build target
 const PATHS = {
     app: path.join(__dirname, 'app'),
     style: [
@@ -68,6 +70,9 @@ module.exports = {
             compress: {
                 warnings: false
             }
+        }),
+        new CleanWebpackPlugin([PATHS.build], {
+          root: process.cwd()
         })
     ],
     devServer: {

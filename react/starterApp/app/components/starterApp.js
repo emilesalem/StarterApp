@@ -15,7 +15,7 @@ export default class StarterApp extends React.Component {
 						<Elementlist></Elementlist>
           </div>
 					<div>
-					  	<Detailpanel></Detailpanel>
+					  <Detailpanel></Detailpanel>
 					</div>
 				</div>
 			</div>

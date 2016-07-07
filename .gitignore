@@ -1,11 +1,10 @@
 logs/*
 tmp
 .DS_Store
-.idealogs/*
 !.gitkeep
 node_modules/
-bower_components/
-.idea/*
-*.js
-*.js.map
 *.log
+angular2/**/*.js
+angular2/**/*.js.map
+**/*/bower_components
+build/
