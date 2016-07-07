@@ -2,8 +2,11 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
 
-//Basic config, does just enough to get application running
-
+//- React bundle extracted
+//TODO:
+//- minimification
+//- source-map
+//- bundle hashing
 const PATHS = {
     app: path.join(__dirname, 'app'),
     style: [
@@ -17,7 +20,8 @@ module.exports = {
     context: __dirname + "/app",
     entry: {
         app: PATHS.app,
-        style: PATHS.style
+        style: PATHS.style,
+        vendor: ['react', 'react-dom']
     },
     output: {
         path: PATHS.build,
@@ -79,6 +83,11 @@ module.exports = {
             title: 'Starter app',
             appMountId: 'app',
             inject: false
+        }),
+        new webpack.optimize.CommonsChunkPlugin({
+          names: ['vendor', 'manifest'],
+          // options.name modules only
+          minChunks: Infinity
         })
     ]
 }
