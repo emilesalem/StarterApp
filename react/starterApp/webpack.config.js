@@ -2,9 +2,10 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
 
-//- React bundle extracted
-//TODO:
+//- React bundle extracted using CommonsChunkPlugin
 //- minimification
+
+//TODO:
 //- source-map
 //- bundle hashing
 const PATHS = {
@@ -85,9 +86,14 @@ module.exports = {
             inject: false
         }),
         new webpack.optimize.CommonsChunkPlugin({
-          names: ['vendor', 'manifest'],
-          // options.name modules only
-          minChunks: Infinity
+            names: ['vendor', 'manifest'],
+            // options.name modules only
+            minChunks: Infinity
+        }),
+        new webpack.optimize.UglifyJsPlugin({
+            compress: {
+                warnings: false
+            }
         })
     ]
 }
