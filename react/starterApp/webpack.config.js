@@ -2,6 +2,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const webpack = require('webpack');
 const path = require('path');
 
+//Basic config, does just enough to get application running
+
 const PATHS = {
     app: path.join(__dirname, 'app'),
     style: [
@@ -42,7 +44,6 @@ module.exports = {
             include: PATHS.app
         }]
     },
-
     devServer: {
         // Enable history API fallback so HTML5 History API based
         // routing works. This is a good default that will come
