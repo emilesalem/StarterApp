@@ -17,8 +17,18 @@ Steps:
             ‘npm install babel-core -D’
              Il faut renommer le gulpfile.js vers ‘gulpfile.babel.js'
 
-        5- générer  package.json avec ’npm init’
+    5- générer  package.json avec ’npm init’
 
 
-	6- bon la mon app fonctionne pas parce que j’ai du JSX sur mon index.html et il est pas transpilé. Que faire. Je veux
-	   pas utiliser les in-browser transpiler.
+	6- ReferenceError: exports is not defined
+
+        I am trying to run CommonJS code (transpiled from ES6) in the browser without preparation.
+        CommonJS does not run in the browser, I need to use a tool to package it for the browser such as Webpack.
+
+        ok.
+
+        On intègre webpack!
+
+
+
+
