@@ -1,6 +1,6 @@
 {
   "name": "reactES6starterApp",
-  "version": "0.0.3",
+  "version": "1.0.0",
   "dependencies": {
     "react": "^15.1.0"
   },
