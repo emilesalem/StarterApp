@@ -4,10 +4,8 @@ const path = require('path');
 
 //- React bundle extracted using CommonsChunkPlugin
 //- minimification
-
-//TODO:
 //- source-map
-//- bundle hashing
+
 const PATHS = {
     app: path.join(__dirname, 'app'),
     style: [
@@ -18,6 +16,7 @@ const PATHS = {
 };
 
 module.exports = {
+    devtool: 'source-map',
     context: __dirname + "/app",
     entry: {
         app: PATHS.app,
@@ -26,8 +25,7 @@ module.exports = {
     },
     output: {
         path: PATHS.build,
-        filename: '[name].bundle.js',
-        chunkFilename: '[id].bundle.js'
+        filename: '[name].js'
     },
     resolve: {
         extensions: ['', '.js', '.jsx']
@@ -48,30 +46,6 @@ module.exports = {
             loaders: ['eslint'],
             include: PATHS.app
         }]
-    },
-    devServer: {
-        // Enable history API fallback so HTML5 History API based
-        // routing works. This is a good default that will come
-        // in handy in more complicated setups.
-        historyApiFallback: true,
-
-        // Unlike the cli flag, this doesn't set
-        // HotModuleReplacementPlugin!
-        hot: true,
-        inline: true,
-
-        // Display only errors to reduce the amount of output.
-        stats: 'errors-only',
-
-        // Parse host and port from env to allow customization.
-        //
-        // If you use Vagrant or Cloud9, set
-        // host: options.host || '0.0.0.0';
-        //
-        // 0.0.0.0 is available to all network devices
-        // unlike default `localhost`.
-        host: process.env.HOST, // Defaults to `localhost`
-        port: process.env.PORT // Defaults to 8080
     },
     plugins: [
         // Enable multi-pass compilation for enhanced performance
@@ -95,5 +69,29 @@ module.exports = {
                 warnings: false
             }
         })
-    ]
+    ],
+    devServer: {
+        // Enable history API fallback so HTML5 History API based
+        // routing works. This is a good default that will come
+        // in handy in more complicated setups.
+        historyApiFallback: true,
+
+        // Unlike the cli flag, this doesn't set
+        // HotModuleReplacementPlugin!
+        hot: true,
+        inline: true,
+
+        // Display only errors to reduce the amount of output.
+        stats: 'errors-only',
+
+        // Parse host and port from env to allow customization.
+        //
+        // If you use Vagrant or Cloud9, set
+        // host: options.host || '0.0.0.0';
+        //
+        // 0.0.0.0 is available to all network devices
+        // unlike default `localhost`.
+        host: process.env.HOST, // Defaults to `localhost`
+        port: process.env.PORT // Defaults to 8080
+    }
 }
