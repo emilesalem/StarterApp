@@ -2,29 +2,29 @@ import React from 'react';
 import Elementlist from './elementList';
 import Detailpanel from './detailPanel';
 
+/*
+	*CLASS BASED DEFINITION*
+	to support the concept of state (a backing instance will be created)
+*/
+
 export default class StarterApp extends React.Component {
+
 	constructor( props ) {
 		super( props );
-
 		this.state = {
 				elements: this.getElements(),
 				selectedElement : this.getElementDetail(0)
 		};
-
 	}
 
-
-
 	render() {
-
-
 		return (
-			<div>
-				<div>
-					<div>
-						<Elementlist elements={this.state.elements} onElementSelect={this.selectElement}></Elementlist>
+			<div className="panel">
+				<div className="row">
+					<div className="col-md-8">
+						<Elementlist elements={this.state.elements} onElementSelect={(element) => this.selectElement(element)}></Elementlist>
           </div>
-					<div>
+					<div className="col-md-4">
 					  <Detailpanel selectedElement={this.state.selectedElement}></Detailpanel>
 					</div>
 				</div>
@@ -32,7 +32,7 @@ export default class StarterApp extends React.Component {
 		);
 	}
 
-	selectElement(element){
+	selectElement (element) {
 		this.setState({
 			elements: this.state.elements,
 			selectedElement: element
